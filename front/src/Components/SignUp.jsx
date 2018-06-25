@@ -13,7 +13,7 @@ export default class SignUp extends Component {
         this.updatePassword = this.updatePassword.bind(this);
         this.updateLastname = this.updateLastname.bind(this);
         this.updateFirstname = this.updateFirstname.bind(this);
-
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     updateMail(e) {
@@ -40,11 +40,30 @@ export default class SignUp extends Component {
         });
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        const form = document.getElementsByTagName('form')[0];
+        const inputs = form.getElementsByTagName('input');
+        const email = inputs[0].value;
+        const password = inputs[1].value;
+        const lastname = inputs[2].value;
+        const firstname = inputs[3].value;
+
+        const json = {
+            email: email,
+            password: password,
+            lastname: lastname,
+            firstname: firstname
+        };
+
+        console.log(json);
+    }
+
     render () {
         return (
         <div>
             <h1>{JSON.stringify(this.state)}</h1>
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <div>
                     <label>Email</label>
                     <input type="email" name="email" value={this.state.email} onChange={this.updateMail} />
