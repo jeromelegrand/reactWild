@@ -42,21 +42,7 @@ export default class SignUp extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const form = document.getElementsByTagName('form')[0];
-        const inputs = form.getElementsByTagName('input');
-        const email = inputs[0].value;
-        const password = inputs[1].value;
-        const lastname = inputs[2].value;
-        const firstname = inputs[3].value;
-
-        const json = {
-            email: email,
-            password: password,
-            lastname: lastname,
-            firstname: firstname
-        };
-
-        console.log(json);
+        console.log(this.state);
     }
 
     render () {
